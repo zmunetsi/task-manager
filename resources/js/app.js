@@ -27,6 +27,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+ // Complete SortableJS (with all plugins)
+import Sortable from 'sortablejs/modular/sortable.complete.esm.js';
+
 const app = new Vue({
     el: '#app',
 });
+

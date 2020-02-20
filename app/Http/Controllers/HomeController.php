@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Project;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+         $all_projects  = Project::orderBy('id', 'DESC')->get();
+
+
+         return view('home',compact('all_projects'));
     }
 }
