@@ -86,7 +86,6 @@ class ProjectController extends Controller
     public function show(Project $project)
     {  
 
-        $all_projects  = Project::orderBy('id', 'DESC')->get();
        
         
         return view('project.show',compact('project'));

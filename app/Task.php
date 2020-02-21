@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use \Rutorika\Sortable\SortableTrait;
+
 
 class Task extends Model
 {

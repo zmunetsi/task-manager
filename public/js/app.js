@@ -53245,6 +53245,37 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+var el = document.getElementById('sortable-items');
+
+if (typeof el != 'undefined' && el != null) {
+  var sortable = new sortablejs_modular_sortable_complete_esm_js__WEBPACK_IMPORTED_MODULE_0__["default"](el, {
+    onSort: function onSort(e) {
+      var elemts = $('.draggable');
+      var idArrays = [];
+      $(elemts).each(function (index) {
+        idArrays.push($(this).data("id"));
+      });
+      $.ajax({
+        type: "POST",
+        url: '/sort',
+        data: {
+          idArrays: idArrays
+        },
+        success: function success(data) {
+          $('.ajax-success').html(" <div class=\"alert alert-success\" role=\"alert\">\n                           " + data + "\n                    </div>");
+        },
+        error: function error(data, textStatus, errorThrown) {
+          $('.ajax-success').html(" <div class=\"alert alert-success\" role=\"alert\">\n                           " + textStatus + "\n                    </div>");
+        }
+      });
+    }
+  });
+}
 
 /***/ }),
 

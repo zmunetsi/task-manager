@@ -32,8 +32,10 @@
                         </div>
                     @endif
 
+                    <div class = "ajax-success"></div>
 
-                    <ul class="list-group">
+
+                    <ul id = "sortable-items" class="list-group">
 
                   <button type="button" class="list-group-item list-group-item-action active">
                     Tasks
@@ -41,11 +43,10 @@
 
                   @foreach($project->tasks as $task)
 
-                      <li class="draggable list-group-item d-flex justify-content-between align-items-center">
+                      <li data-id="{{{ $task->id }}}" class="draggable list-group-item d-flex justify-content-between align-items-center">
                         {{$task->name}}
                         <a href = "{{route('tasks.edit',$task)}}" class="badge badge-primary badge-pill">Edit</a>
                         
-                        <span class="badge badge-warning badge-pill">Urgent</span>
                          <form method="POST" action="/tasks/{{$task->id}}">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
@@ -74,6 +75,5 @@
 
 
 @endsection
-
 
 

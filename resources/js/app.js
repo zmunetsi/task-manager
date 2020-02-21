@@ -34,3 +34,58 @@ const app = new Vue({
     el: '#app',
 });
 
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+
+ var el = document.getElementById('sortable-items');
+
+    if(typeof(el) != 'undefined' && el != null){
+
+         var sortable = new Sortable(el, {
+
+         	 onSort: function (e) {
+                   
+                   var elemts = $('.draggable');
+
+                   var idArrays = [];
+              
+
+					$( elemts ).each(function( index ) {
+
+						idArrays.push($(this).data("id"));
+
+
+					  
+					});
+
+				
+								        
+			        $.ajax({
+				    type: "POST",
+				    url: '/sort',
+				    data: {idArrays},
+
+				    success: function (data) {
+
+				    	$('.ajax-success').html(` <div class="alert alert-success" role="alert">
+                           `+data+`
+                    </div>`);
+
+				    },
+				    error: function (data, textStatus, errorThrown) {
+				        $('.ajax-success').html(` <div class="alert alert-success" role="alert">
+                           `+textStatus+`
+                    </div>`);
+
+				    },
+				});
+
+
+
+			    },
+
+         });
+    }
