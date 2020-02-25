@@ -64,7 +64,7 @@ And you can test the app on the following url:http://127.0.0.1:8000
 
 ## Authors
 
-* **Munetsi Zunguzira** - *url* - (https://munetsizunguzira.com)
+* **Munetsi Zunguzira** - *url* - (http://munetsizunguzira.com)
 
 
 
