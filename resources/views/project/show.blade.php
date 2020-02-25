@@ -32,6 +32,8 @@
                         </div>
                     @endif
 
+                    @if(count($project->tasks) > 0)
+
                     <div class = "ajax-success"></div>
 
 
@@ -62,7 +64,8 @@
                    
                     </ul>
 
-                 
+                   @endif
+
                 </div>
             </div>
 
