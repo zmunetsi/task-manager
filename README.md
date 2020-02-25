@@ -20,7 +20,7 @@ https://www.apachefriends.org/index.html
 
 ```
 
-
+-Npm or Yarn installed on your machine.
 
 ### Installing
 
@@ -32,13 +32,25 @@ From the command line cd into the project containing your Project.
 composer install
 ```
 
-2.  Run migrations
+2.  Run npm install to install dependancies in package.lock.json
+
+```
+npm install
+```
+
+3. Run npm run dev to compile the assets
+
+```
+npm run dev
+```
+
+4.  Run migrations
 
 ```
 php artisan migrate
 ```
 
-3.  Run the server
+5.  Run the server
 
 ```
 php artisan serve
@@ -62,6 +74,6 @@ This project is licensed under the MIT License.
 
 ## Acknowledgments
 
-* Inspired by bootstrap
-* Used this jquery package to implement sortables - sortablejs
+* Inspired by bootstrap awesomeness.
+* Used this jquery package to implement sortables - sortablejs.
 
